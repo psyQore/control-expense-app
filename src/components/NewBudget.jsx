@@ -15,7 +15,7 @@ const NewBudget = ({ budget, setBudget, setIsValidBudget }) => {
 
     /* Se resetea el error */
     setMessage("");
-    setIsValidBudget(true)
+    setIsValidBudget(true);
   };
 
   return (
