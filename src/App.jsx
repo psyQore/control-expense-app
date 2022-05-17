@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import IconNewBudget from "./img/nuevo-gasto.svg";
+import Modal from "./components/Modal";
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -29,7 +30,7 @@ function App() {
         </div>
       )}
 
-      {modal && <p>Desde Modal</p>}
+      {modal && <Modal setModal={setModal}/>}
     </div>
   );
 }
