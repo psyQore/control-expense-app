@@ -18,6 +18,28 @@ const Modal = ({ setModal, animationModal, setAnimationModal }) => {
 
       <form className={`formulario ${animationModal ? "animar" : "cerrar"}`}>
         <legend>Nuevo Gasto</legend>
+        <div className="campo">
+          <label htmlFor="name">Nombre Gasto</label>
+          <input type="text" placeholder="Añade el nombre del gasto" />
+        </div>
+        <div className="campo">
+          <label htmlFor="quantity">Cantidad</label>
+          <input type="number" placeholder="Añade la cantidad gasto: ej. 300" />
+        </div>
+        <div className="campo">
+          <label htmlFor="category">Categoría</label>
+          <select id="category">
+            <option value="">-- Seleccione --</option>
+            <option value="ahorro">Ahorro</option>
+            <option value="comida">Comida-</option>
+            <option value="casa">Casa</option>
+            <option value="gastos">Gastos Varios</option>
+            <option value="ocio">Ocio</option>
+            <option value="salud">Salud</option>
+            <option value="suscripciones">Suscripciones</option>
+          </select>
+        </div>
+        <input type="submit" value="Añadir Gasto" />
       </form>
     </div>
   );
