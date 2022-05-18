@@ -9,6 +9,8 @@ function App() {
   const [modal, setModal] = useState(false);
   const [animationModal, setAnimationModal] = useState(false);
 
+  const [expenses, setExpenses] = useState([]);
+
   const handleNewExpense = () => {
     setModal(true);
 
@@ -16,6 +18,10 @@ function App() {
       setAnimationModal(true);
     }, 500);
   };
+
+  const saveExpense = (expense) => {
+    console.log(expense);
+  }
 
   return (
     <div>
@@ -40,6 +46,7 @@ function App() {
           setModal={setModal}
           animationModal={animationModal}
           setAnimationModal={setAnimationModal}
+          saveExpense={saveExpense}
         />
       )}
     </div>
