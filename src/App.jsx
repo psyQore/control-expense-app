@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import ListExpenses from "./components/ListExpenses";
 import Modal from "./components/Modal";
 import { generateId } from "./helpers";
 import IconNewBudget from "./img/nuevo-gasto.svg";
@@ -30,7 +31,7 @@ function App() {
     setTimeout(() => {
       setModal(false);
     }, 500);
-  }
+  };
 
   return (
     <div>
@@ -41,13 +42,20 @@ function App() {
         setIsValidBudget={setIsValidBudget}
       />
       {isValidBudget && (
-        <div className="nuevo-gasto">
-          <img
-            src={IconNewBudget}
-            alt="Icon New Budget"
-            onClick={handleNewExpense}
-          />
-        </div>
+        <>
+          <main>
+            <ListExpenses
+              expenses={expenses}
+            />
+          </main>
+          <div className="nuevo-gasto">
+            <img
+              src={IconNewBudget}
+              alt="Icon New Budget"
+              onClick={handleNewExpense}
+            />
+          </div>
+        </>
       )}
 
       {modal && (
