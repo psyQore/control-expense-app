@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className={modal ? "fijar" : ""}>
       <Header
         budget={budget}
         setBudget={setBudget}
@@ -44,9 +44,7 @@ function App() {
       {isValidBudget && (
         <>
           <main>
-            <ListExpenses
-              expenses={expenses}
-            />
+            <ListExpenses expenses={expenses} />
           </main>
           <div className="nuevo-gasto">
             <img
