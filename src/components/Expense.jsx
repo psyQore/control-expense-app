@@ -1,4 +1,4 @@
-import { formatDate } from "../helpers";
+import { formatQuantity, formatDate } from "../helpers";
 
 import iconoAhorro from "../img/icono_ahorro.svg";
 import iconoCasa from "../img/icono_casa.svg";
@@ -27,7 +27,7 @@ const Expense = ({ expense }) => {
       <div className="contenido-gasto">
         <img src={dictionaryIconos[category]} alt="Icono" />
         <div className="descripcion-gasto">
-          <p className="categoria">{expense.category}</p>
+          <p className="categoria">{category}</p>
           <p className="nombre-gasto">{name}</p>
           <p className="fecha-gasto">
             Agregado el: {""}
@@ -35,7 +35,7 @@ const Expense = ({ expense }) => {
           </p>
         </div>
       </div>
-      <p className="cantidad-gasto">${quantity}</p>
+      <p className="cantidad-gasto">{formatQuantity(quantity)}</p>
     </div>
   );
 };

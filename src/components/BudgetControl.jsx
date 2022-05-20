@@ -1,5 +1,16 @@
+import { useState, useEffect } from "react";
+
 import { formatQuantity } from "../helpers";
-const BudgetControl = ({ budget }) => {
+const BudgetControl = ({ budget, expenses }) => {
+  const [available, setAvailable] = useState(0);
+  const [spent, setSpent] = useState(0);
+
+  useEffect(() => {
+    const totalSpent = expenses.reduce((total, expense) => expense.quantity + total, 0);
+
+    console.log(totalSpent);
+    setSpent(totalSpent)
+  }, [expenses]);
 
   return (
     <div className="contenedor-presupuesto contenedor sombra dos-columnas">
@@ -9,10 +20,10 @@ const BudgetControl = ({ budget }) => {
           <span>Presupuesto:</span> {formatQuantity(budget)}
         </p>
         <p>
-          <span>Disponible:</span> {formatQuantity(0)}
+          <span>Disponible:</span> {formatQuantity(available)}
         </p>
         <p>
-          <span>Gastado:</span> {formatQuantity(0)}
+          <span>Gastado:</span> {formatQuantity(spent)}
         </p>
       </div>
     </div>
