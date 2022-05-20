@@ -24,10 +24,10 @@ function App() {
 
   const saveExpense = (expense) => {
     expense.id = generateId();
+    expense.date = Date.now();
     setExpenses([...expenses, expense]);
 
     setAnimationModal(false);
-
     setTimeout(() => {
       setModal(false);
     }, 500);
