@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { formatQuantity } from "../helpers";
 import Message from "./Message";
 
 const NewBudget = ({ budget, setBudget, setIsValidBudget }) => {
@@ -26,7 +27,6 @@ const NewBudget = ({ budget, setBudget, setIsValidBudget }) => {
           <input
             className="nuevo-presupuesto"
             type="number"
-            placeholder="Añade tu Presupuesto"
             value={budget}
             onChange={(e) => setBudget(Number(e.target.value))}
           />

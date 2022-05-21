@@ -7,7 +7,7 @@ import IconNewBudget from "./img/nuevo-gasto.svg";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
-  
+
   const [budget, setBudget] = useState(0);
   const [isValidBudget, setIsValidBudget] = useState(false);
 
