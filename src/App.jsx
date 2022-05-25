@@ -18,13 +18,16 @@ function App() {
 
   useEffect(() => {
     if (Object.keys(editExpense).length > 0) {
-      handleNewExpense();
+      setModal(true);
+      setTimeout(() => {
+        setAnimationModal(true);
+      }, 500);
     }
   }, [editExpense]);
 
   const handleNewExpense = () => {
     setModal(true);
-
+    setEditExpense({});
     setTimeout(() => {
       setAnimationModal(true);
     }, 500);
@@ -34,7 +37,6 @@ function App() {
     expense.id = generateId();
     expense.date = Date.now();
     setExpenses([...expenses, expense]);
-
     setAnimationModal(false);
     setTimeout(() => {
       setModal(false);
@@ -64,13 +66,13 @@ function App() {
           </div>
         </>
       )}
-
       {modal && (
         <Modal
           setModal={setModal}
           animationModal={animationModal}
           setAnimationModal={setAnimationModal}
           saveExpense={saveExpense}
+          editExpense={editExpense}
         />
       )}
     </div>
