@@ -39,6 +39,7 @@ function App() {
         expenseState.id === expense.id ? expense : expenseState
       );
       setExpenses(updateExpenses);
+      setEditExpense({});
     } else {
       expense.id = generateId();
       expense.date = Date.now();
@@ -89,6 +90,7 @@ function App() {
           setAnimationModal={setAnimationModal}
           saveExpense={saveExpense}
           editExpense={editExpense}
+          setEditExpense={setEditExpense}
         />
       )}
     </div>

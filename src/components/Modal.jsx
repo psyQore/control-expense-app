@@ -8,6 +8,7 @@ const Modal = ({
   setAnimationModal,
   saveExpense,
   editExpense,
+  setEditExpense
 }) => {
   const [message, setMessage] = useState("");
 
@@ -29,6 +30,7 @@ const Modal = ({
 
   const hideModal = () => {
     setAnimationModal(false);
+    setEditExpense({})
 
     setTimeout(() => {
       setModal(false);
