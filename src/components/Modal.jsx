@@ -51,13 +51,12 @@ const Modal = ({
     }
 
     saveExpense({ name, quantity, category, date, id });
-
   };
 
   return (
     <div className="modal">
       <div className="cerrar-modal">
-        <img src={CloseBtn} alt="Cerrar Modal" onClick={hideModal} />
+        <img src={CloseBtn} alt="Cerrar" onClick={hideModal} />
       </div>
 
       <form
