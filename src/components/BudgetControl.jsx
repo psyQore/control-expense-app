@@ -30,11 +30,13 @@ const BudgetControl = ({ budget, expenses }) => {
   return (
     <div className="contenedor-presupuesto contenedor sombra dos-columnas">
       <CircularProgressbar
-        value={percentage}
         styles={buildStyles({
           pathColor: "#3B82F6",
           trailColor: "#F5F5F5",
+          textColor: "#3B82F6",
         })}
+        value={percentage}
+        text={`${percentage}% Gastado`}
       />
       <div className="contenido-presupuesto">
         <p>
