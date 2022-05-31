@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import ListExpenses from "./components/ListExpenses";
+import Filters from "./components/Filters";
 import Modal from "./components/Modal";
 import { generateId } from "./helpers";
 import IconNewBudget from "./img/nuevo-gasto.svg";
 
 function App() {
   const [expenses, setExpenses] = useState(
-    localStorage.getItem("budget")
+    localStorage.getItem("expenses")
       ? JSON.parse(localStorage.getItem("expenses"))
       : []
   );
@@ -21,6 +22,8 @@ function App() {
   const [animationModal, setAnimationModal] = useState(false);
 
   const [editExpense, setEditExpense] = useState({});
+
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     if (Object.keys(editExpense).length > 0) {
@@ -90,6 +93,7 @@ function App() {
       {isValidBudget && (
         <>
           <main>
+            <Filters filter={filter} setFilter={setFilter} />
             <ListExpenses
               expenses={expenses}
               setEditExpense={setEditExpense}

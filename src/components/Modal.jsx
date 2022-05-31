@@ -8,7 +8,7 @@ const Modal = ({
   setAnimationModal,
   saveExpense,
   editExpense,
-  setEditExpense
+  setEditExpense,
 }) => {
   const [message, setMessage] = useState("");
 
@@ -30,11 +30,11 @@ const Modal = ({
 
   const hideModal = () => {
     setAnimationModal(false);
-    setEditExpense({})
+    setEditExpense({});
 
     setTimeout(() => {
       setModal(false);
-    }, 500);
+    }, 250);
   };
 
   const handleSubmit = (e) => {
@@ -47,9 +47,11 @@ const Modal = ({
       setTimeout(() => {
         setMessage("");
       }, 3000);
+      return;
     }
 
     saveExpense({ name, quantity, category, date, id });
+
   };
 
   return (
