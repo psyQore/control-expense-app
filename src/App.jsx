@@ -24,6 +24,7 @@ function App() {
   const [editExpense, setEditExpense] = useState({});
 
   const [filter, setFilter] = useState([]);
+  const [filteredExpenses, setFilteredExpenses] = useState([]);
 
   useEffect(() => {
     if (Object.keys(editExpense).length > 0) {
@@ -41,6 +42,17 @@ function App() {
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses) ?? []);
   }, [expenses]);
+
+  useEffect(() => {
+    if (filter) {
+      // Filtrar gastos
+      const filteredExpenses = expenses.filter(
+        (expense) => expense.category === filter
+      );
+
+      setFilteredExpenses(filteredExpenses);
+    }
+  }, [filter]);
 
   useEffect(() => {
     const budgetLS = Number(localStorage.getItem("budget")) ?? 0;
